@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Year in Review Review
+
+A Next.js web application that curates and displays a collection of "year in review" blog posts from around the web. Browse posts by year, filter by author, sort by various criteria, and discover interesting year-end reflections from different writers.
+
+## Features
+
+- Browse year-in-review posts filtered by year
+- Sort posts by author, streak (consecutive years), or word count
+- View statistics including total posts, unique authors, longest streaks, and most prolific writers
+- Random post picker for serendipitous discovery
+- Automatically extracts metadata (title, author, preview, word count) from post URLs
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The page auto-updates as you edit files.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+The project includes utility scripts for managing the post collection:
 
-To learn more about Next.js, take a look at the following resources:
+### Extract URLs from Data
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Extract all URLs from `app/data.ts` and write them to `script/urls.txt`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+node script/extract-urls.mjs
+```
 
-## Deploy on Vercel
+This is useful for generating a list of all currently tracked posts.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Add Posts from URLs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Read URLs from `script/urls.txt`, fetch metadata from each URL, and add new posts or enrich existing ones in `app/data.ts`:
+
+```bash
+node script/add-posts-from-urls.mjs
+```
+
+**How it works:**
+- Reads URLs from `script/urls.txt` (one URL per line)
+- For each URL:
+  - If it's a new URL: fetches the page, extracts metadata (title, author, preview, word count), and adds it to `app/data.ts`
+  - If it already exists: checks if it's missing preview or word count data, and enriches it if needed
+- Automatically infers the year from the URL or uses the current year
+- Extracts author information from meta tags, JSON-LD, or uses the domain name as fallback
+- Formats the output using Prettier
+
+**Usage workflow:**
+1. Add new URLs to `script/urls.txt` (one per line)
+2. Run `node script/add-posts-from-urls.mjs`
+3. The script will fetch metadata and update `app/data.ts` automatically
+
+## Project Structure
+
+- `app/page.tsx` - Main page component with filtering and sorting
+- `app/data.ts` - Post data array (auto-generated/updated by scripts)
+- `app/components/` - React components (PostList, YearFilter)
+- `script/add-posts-from-urls.mjs` - Script to add/enrich posts from URLs
+- `script/extract-urls.mjs` - Script to extract URLs from data.ts
+- `script/urls.txt` - List of URLs to process (one per line)
+
+## Todo
+
+- [ ] Add survey with PostHog asking for year in review posts to add
+- [ ] Tag each post with LLM generated tags
+- [ ] Sort by tag
