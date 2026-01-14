@@ -251,6 +251,17 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <footer className="mt-12 pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
+          <a
+            href="https://github.com/ivanagas/year-in-review"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-700 hover:underline"
+          >
+            Find the code and make suggestions on GitHub
+          </a>
+        </footer>
       </div>
     </div>
   );
