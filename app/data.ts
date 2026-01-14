@@ -1,7 +1,6 @@
 import { YearInReviewPost } from "./types";
 
 export const posts: YearInReviewPost[] = [
-  // Dan Wang posts
   {
     id: "danwang-2025",
     url: "https://danwang.co/2025-letter/",
