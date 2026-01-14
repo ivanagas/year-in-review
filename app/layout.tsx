@@ -13,8 +13,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Year in Review",
-  description: "A collection of year-in-review posts from around the web",
+  title: "Year in Review Review",
+  description:
+    "A curated collection of year-in-review blog posts from around the web. Browse posts by year, filter by author, and discover interesting year-end reflections from writers across the internet.",
+  keywords: [
+    "year in review",
+    "annual review",
+    "year-end reflection",
+    "yearly summary",
+    "year review",
+  ],
+  authors: [{ name: "Year in Review Review" }],
+  creator: "Year in Review Review",
+  openGraph: {
+    type: "website",
+    title: "Year in Review Review",
+    description:
+      "A curated collection of year-in-review blog posts from around the web",
+    siteName: "Year in Review Review",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Year in Review Review",
+    description:
+      "A curated collection of year-in-review blog posts from around the web",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

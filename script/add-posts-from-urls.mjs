@@ -286,7 +286,8 @@ async function main() {
 
       // Add preview if missing
       if (!existing.hasPreview && info.preview) {
-        const previewField = `\n      preview: '${info.preview.replace(/'/g, "\\'")}',`;
+        const sanitizedPreview = info.preview.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/'/g, "\\'");
+        const previewField = `\n      preview: '${sanitizedPreview}',`;
         // Insert before the closing brace
         updatedText = updatedText.replace(/(\n\s*})$/, `${previewField}$1`);
       }
@@ -334,7 +335,7 @@ async function main() {
       existingIds.add(id);
 
       const previewField = p.preview
-        ? `\n      preview: '${p.preview.replace(/'/g, "\\'")}',`
+        ? `\n      preview: '${p.preview.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/'/g, "\\'")}',`
         : '';
       const wordCountField = p.wordCount
         ? `\n      wordCount: ${p.wordCount},`
