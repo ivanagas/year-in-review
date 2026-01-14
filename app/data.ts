@@ -111,7 +111,7 @@ export const posts: YearInReviewPost[] = [
     wordCount: 3949,
   },
   {
-    id: "jim-zub-2025",
+    id: "jimzub-2025",
     url: "https://jimzub.substack.com/p/zubby-newsletter-140-year-in-review",
     year: 2025,
     author: "Jim Zub",
@@ -1435,5 +1435,155 @@ export const posts: YearInReviewPost[] = [
     preview:
       "Justin Jackson's annual review: personal update, business, community",
     wordCount: 1509,
+  },
+  {
+    id: "jimzub-2024",
+    url: "https://www.jimzub.com/zubby-newsletter-95-year-in-review/",
+    year: 2024,
+    author: "Jim Zub",
+    title: "Zubby Newsletter #95: Year In Review | Zub Tales",
+    preview:
+      "For the past 14 years I’ve been putting together a ‘Year In Review‘ post on my website as a way to summarize my thoughts and feelings on the year that was. It’s nice to measure highs and lows, and help jog my memory as things carry forward.",
+    wordCount: 2307,
+  },
+  {
+    id: "jimzub-2023",
+    url: "https://www.jimzub.com/year-in-review-13/",
+    year: 2023,
+    author: "Jim Zub",
+    title: "Zubby Newsletter #42: Year In Review, 2023 | Zub Tales",
+    preview:
+      "For the past 13 years I’ve been putting together a ‘Year In Review‘ post on my website as a way to summarize my thoughts and feelings on the year that was. It’s a nice way to measure highs and lows, and help jog my memory as things carry forward.",
+    wordCount: 2096,
+  },
+  {
+    id: "jimzub-2022",
+    url: "https://www.jimzub.com/year-in-review-12/",
+    year: 2022,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "Last year I wrote that 2021 felt like a vortex, eating up time as we wondered when things would get better. 2022 showed some respite from the lows I felt over the past two years and it was a return to more in-person interaction, but it’s still hard to say if any of this is “normal.”",
+    wordCount: 1683,
+  },
+  {
+    id: "jimzub-2021",
+    url: "https://www.jimzub.com/year-in-review-11/",
+    year: 2021,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "While doing some year-end financial calculations yesterday I filled out an entire excel spreadsheet, dozens of dated entries, and made every single one a 2020 date instead of 2021.",
+    wordCount: 1692,
+  },
+  {
+    id: "jimzub-2020",
+    url: "https://www.jimzub.com/year-in-review-10/",
+    year: 2020,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "Here we go again. A post to try and summarize the year that was and, man oh man, 2020 was quite possibly the strangest of them all.",
+    wordCount: 1748,
+  },
+  {
+    id: "jimzub-2019",
+    url: "https://www.jimzub.com/year-in-review-9/",
+    year: 2019,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "As I’ve done in years past, I try to sum up the year that was in a post here on my site. 2019 had some of the highest highs and lowest lows in recent memory, closing out the decade in ways I never could have imagined.",
+    wordCount: 1840,
+  },
+  {
+    id: "jimzub-2018",
+    url: "https://www.jimzub.com/year-in-review-8/",
+    year: 2018,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "I’ve been writing these ‘Year In Review’ posts since 2010, and each time I try to summarize what’s happening in my life and the gratitude I have for all these incredible experiences.",
+    wordCount: 1983,
+  },
+  {
+    id: "jimzub-2017",
+    url: "https://www.jimzub.com/year-in-review-7/",
+    year: 2017,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "As I’ve done in years past, I try to sum up the year that was in a post here on my site. 2017 was a strong year for me on a personal level and that felt a bit odd compared to the tumultuous and difficult state of the world at large.",
+    wordCount: 2047,
+  },
+  {
+    id: "jimzub-2016",
+    url: "https://www.jimzub.com/year-in-review-6/",
+    year: 2016,
+    author: "Jim Zub",
+    title: "Year in Review | Zub Tales",
+    preview:
+      "As I’ve done in years past, I try to use this post to sum up the year that was. 2016 was such a strange and turbulent time around the world and that made it even more surreal as I personally had a banner year in my work and personal life.",
+    wordCount: 1787,
+  },
+  {
+    id: "jimzub-2015",
+    url: "https://www.jimzub.com/year-in-review-5/",
+    year: 2015,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "Here we go again, a look at my year in review. I’ve been doing this on my blog for the past few years (2010, 2011, 2012, 2013, 2014). It’s a nice way to sum up my thoughts on the year that was and take in the ups and downs that came with it.",
+    wordCount: 2201,
+  },
+  {
+    id: "jimzub-2014",
+    url: "https://www.jimzub.com/year-in-review-4/",
+    year: 2014,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "Here we go again, a look at my year in review. I’ve been doing this on my blog for the past few years (2010, 2011, 2012, 2013) and it’s a nice way to sum up my thoughts on the year that was and take in the ups and downs that came with it.",
+    wordCount: 2214,
+  },
+  {
+    id: "jimzub-2013",
+    url: "https://www.jimzub.com/2013-a-great-year-that-almost-wasnt/",
+    year: 2013,
+    author: "Jim Zub",
+    title: "2013 – A Great Year That Almost Wasn’t | Zub Tales",
+    preview:
+      "2013 has been an incredible year, but it sure as heck didn’t start out that way.",
+    wordCount: 2136,
+  },
+  {
+    id: "jimzub-2012",
+    url: "https://www.jimzub.com/year-in-review-3/",
+    year: 2012,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "It’s time again for my year in review post. I’ve been doing this for the past three years, looking backwards and forwards, trying to gauge where things have been, where they are now and where I’d like them to be in the year ahead.",
+    wordCount: 2041,
+  },
+  {
+    id: "jimzub-2011",
+    url: "https://www.jimzub.com/year-in-review-2/",
+    year: 2011,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "Almost a year ago to the day I posted up a Year In Review for 2010 with thoughts on how the year had gone and intentions for 2011. 12 months later, I’m here to see how that went and do it again.",
+    wordCount: 2468,
+  },
+  {
+    id: "jimzub-2010",
+    url: "https://www.jimzub.com/year-in-review/",
+    year: 2010,
+    author: "Jim Zub",
+    title: "Year In Review | Zub Tales",
+    preview:
+      "Some times I get a chance to bang out thoughts on the year that was, but I don’t do it as often as I should. So, here goes…",
+    wordCount: 1890,
   },
 ];

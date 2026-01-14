@@ -6,7 +6,7 @@ import PostList from './components/PostList';
 import { posts } from './data';
 import { YearInReviewPost } from './types';
 
-type SortOption = 'author' | 'streak' | 'wordCount';
+type SortOption = 'author' | 'streak' | 'wordCount' | 'oneYearWonder';
 
 export default function Home() {
   const [selectedYear, setSelectedYear] = useState<number>(2025);
@@ -64,8 +64,22 @@ export default function Home() {
     return streak;
   };
 
+  // Authors who have only ever posted one year-in-review
+  const oneYearWonders = useMemo(() => {
+    const authorPostCounts = new Map<string, number>();
+    for (const post of posts) {
+      authorPostCounts.set(post.author, (authorPostCounts.get(post.author) || 0) + 1);
+    }
+    return new Set([...authorPostCounts.entries()].filter(([_, count]) => count === 1).map(([author]) => author));
+  }, []);
+
   const filteredAndSortedPosts = useMemo(() => {
     let filtered = posts.filter(post => post.year === selectedYear);
+
+    if (sortBy === 'oneYearWonder') {
+      filtered = filtered.filter(post => oneYearWonders.has(post.author));
+      return [...filtered].sort((a, b) => a.author.localeCompare(b.author));
+    }
 
     if (sortBy === 'streak') {
       return [...filtered].sort((a, b) => {
@@ -90,7 +104,7 @@ export default function Home() {
     });
 
     return sorted;
-  }, [selectedYear, sortBy]);
+  }, [selectedYear, sortBy, oneYearWonders]);
 
   const stats = useMemo(() => {
     const uniqueAuthors = [...new Set(posts.map(p => p.author))];
@@ -160,6 +174,7 @@ export default function Home() {
                 <option value="author">Author</option>
                 <option value="streak">Streak</option>
                 <option value="wordCount">Word Count</option>
+                <option value="oneYearWonder">One Year Wonder</option>
               </select>
             </div>
 
