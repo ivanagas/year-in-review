@@ -11,6 +11,7 @@ type SortOption = 'author' | 'streak' | 'wordCount' | 'oneYearWonder';
 export default function Home() {
   const [selectedYear, setSelectedYear] = useState<number>(2025);
   const [sortBy, setSortBy] = useState<SortOption>('author');
+  const [showSurvey, setShowSurvey] = useState(false);
 
   const years = useMemo(() => {
     const uniqueYears = [...new Set(posts.map(post => post.year))];
@@ -44,6 +45,14 @@ export default function Home() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [years]);
+
+  // Hide survey selector after 2 seconds
+  useEffect(() => {
+    if (showSurvey) {
+      const timeout = setTimeout(() => setShowSurvey(false), 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [showSurvey]);
 
   const calculateStreak = (author: string, upToYear: number): number => {
     const authorPosts = posts.filter(p => p.author === author);
@@ -183,18 +192,27 @@ export default function Home() {
             </div>
           </div>
 
-          <button
-            onClick={() => {
-              if (filteredAndSortedPosts.length > 0) {
-                const randomPost = filteredAndSortedPosts[Math.floor(Math.random() * filteredAndSortedPosts.length)];
-                window.open(randomPost.url, '_blank');
-              }
-            }}
-            disabled={filteredAndSortedPosts.length === 0}
-            className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            Random Post
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                if (filteredAndSortedPosts.length > 0) {
+                  const randomPost = filteredAndSortedPosts[Math.floor(Math.random() * filteredAndSortedPosts.length)];
+                  window.open(randomPost.url, '_blank');
+                }
+              }}
+              disabled={filteredAndSortedPosts.length === 0}
+              className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              Random Post
+            </button>
+            <button
+              onClick={() => setShowSurvey(true)}
+              className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors"
+            >
+              Add a year in review?
+            </button>
+          </div>
+          {showSurvey && <div className="show-survey hidden" />}
         </div>
 
         <PostList
